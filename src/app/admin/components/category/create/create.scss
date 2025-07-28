@@ -1,0 +1,49 @@
+/* src/app/admin/components/categories/create-category/create-category.component.scss */
+
+/* Mevcut ürün formunuzdaki SCSS'i buraya kopyalayabilirsiniz */
+/* Örneğin: */
+
+.create-product-form-wrapper {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  h2 {
+    text-align: center;
+    color: #3f51b5; /* Primary color */
+    margin-bottom: 25px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Form alanları arasında boşluk */
+  }
+
+  mat-form-field {
+    width: 100%; /* Tüm mat-form-field'lar tam genişlikte */
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px; /* Satır içindeki elemanlar arasında boşluk */
+    .half-width-input {
+      flex: 1; /* Yarım genişlikte inputlar */
+    }
+  }
+
+  .toggle-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+    align-self: flex-end; /* Butonu sağa hizala */
+  }
+}

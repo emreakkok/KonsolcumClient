@@ -1,0 +1,15 @@
+<mat-drawer-container class="category-drawer-container">
+
+  <mat-drawer mode="side" opened class="category-sidebar">
+    <div class="sidebar-content">
+      <app-category-create (categoryCreated)="onCategoryCreated()"></app-category-create>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content class="category-main-content">
+    <div class="main-content-padding">
+      <app-category-list #categoryList></app-category-list>
+    </div>
+  </mat-drawer-content>
+
+</mat-drawer-container>

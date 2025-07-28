@@ -1,0 +1,38 @@
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+.carousel-item img {
+  height: 400px;       /* Yüksekliği biraz artırdık */
+  width: 70%;         /* Genişliği %110 yaparak taşma sağladık */
+  object-fit: cover;   /* Görsel kutuyu tamamen kaplasın */
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+.icon-circle {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}

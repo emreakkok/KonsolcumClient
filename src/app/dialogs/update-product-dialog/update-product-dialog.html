@@ -1,0 +1,70 @@
+<!-- update-product-dialog.html -->
+
+<h2 mat-dialog-title>Ürün Düzenle</h2>
+
+<div mat-dialog-content>
+  <div *ngIf="isLoading" class="loading-spinner-container">
+    <p>Ürün bilgileri yükleniyor...</p>
+  </div>
+
+  <form *ngIf="!isLoading && product" class="update-product-form-wrapper" #updateProductForm="ngForm">
+    <mat-form-field class="full-width-input">
+      <mat-label>Ürün Adı</mat-label>
+      <input matInput 
+             [(ngModel)]="product.name" 
+             name="productName">
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Açıklama</mat-label>
+      <textarea matInput 
+                rows="4" 
+                [(ngModel)]="product.description" 
+                name="productDescription"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Fiyat</mat-label>
+      <input matInput 
+             type="number" 
+             [(ngModel)]="product.price" 
+             name="productPrice">
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Stok Miktarı</mat-label>
+      <input matInput 
+             type="number" 
+             [(ngModel)]="product.stockQuantity" 
+             name="productStockQuantity">
+    </mat-form-field>
+
+    <!-- Kategori Seçimi Eklendi -->
+    <mat-form-field class="full-width-input">
+      <mat-label>Kategori</mat-label>
+      <mat-select [(ngModel)]="product.categoryId" name="productCategory">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Aktif ve Öne Çıkarılmış toggle'ları -->
+    <div class="toggle-group">
+      <mat-slide-toggle [(ngModel)]="product.isActive" name="isActiveToggle">Aktif mi?</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="product.isFeatured" name="isFeaturedToggle">Öne Çıkarılmış mı?</mat-slide-toggle>
+    </div>
+
+    <p class="date-info"><strong>Oluşturulma Tarihi:</strong> {{ product.createdDate | date:'short' }}</p>
+    <p class="date-info" *ngIf="product.updatedDate"><strong>Güncellenme Tarihi:</strong> {{ product.updatedDate | date:'short' }}</p>
+  </form>
+
+  <div *ngIf="!isLoading && !product" class="no-product-info">
+    <p>Ürün bilgisi bulunamadı.</p>
+  </div>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">İptal</button>
+  <button mat-raised-button color="primary" (click)="updateProduct()">Güncelle</button>
+</div>

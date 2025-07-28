@@ -1,0 +1,43 @@
+<!-- create.html -->
+<div class="create-product-form-wrapper">
+  <h2>Yeni Ürün Oluştur</h2>
+  <form>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Ürün Adı</mat-label>
+      <input matInput #txtName placeholder="Örn: DualSense">
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Açıklama</mat-label>
+      <textarea matInput #txtDescription rows="3" placeholder="Ürün açıklaması..."></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Fiyat</mat-label>
+      <input matInput type="number" #txtPrice>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Stok Adedi</mat-label>
+      <input matInput type="number" #txtStockQuantity>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Kategori</mat-label>
+      <mat-select #ddlCategory>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-slide-toggle #chkIsActive>Aktif</mat-slide-toggle>
+    <mat-slide-toggle #chkIsFeatured>Öne Çıkan</mat-slide-toggle>
+
+    <button mat-raised-button color="primary" type="button"
+      (click)="create(txtName, txtDescription, txtPrice, txtStockQuantity, ddlCategory, chkIsActive, chkIsFeatured)">
+      Ürünü Oluştur
+    </button>
+  </form>
+</div>

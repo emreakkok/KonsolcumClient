@@ -1,0 +1,37 @@
+/* src/app/admin/components/products/products.scss */
+.category-drawer-container {
+  /*
+    Yüksekliği ayarlamak çok önemlidir.
+    Viewport'ın tamamını kaplamasını istiyorsanız:
+  */
+  height: calc(100vh - 64px); /* Örneğin, üstte bir toolbar varsa 64px çıkarabilirsiniz */
+  /*
+    Ya da belirli bir sabit yükseklik verebilirsiniz:
+    height: 800px;
+  */
+  border: 1px solid #e0e0e0; /* Hafif bir çerçeve */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Hafif gölge */
+  margin: 16px; /* Sayfadan dışa doğru boşluk */
+  border-radius: 8px; /* Köşe yuvarlama */
+  overflow: hidden; /* İçerik taşmalarını yönetmek için */
+  background-color: #f9f9f9; /* Hafif bir arka plan rengi */
+}
+/* Yan menü (drawer) stil ayarları */
+.category-sidebar {
+  width: 440px; /* Yan menünün genişliğini ayarlayın */
+  padding: 20px; /* İçerik için boşluk */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Yan menüye gölge */
+  background-color: #ffffff; /* Beyaz arka plan */
+  overflow: auto; /* İçerik taşarsa kaydırma çubuğu çıksın */
+}
+
+/* Ana içerik alanı (drawer-content) stil ayarları */
+.category-main-content {
+  padding: 0; /* Mat-drawer-content'in varsayılan padding'ini sıfırlıyoruz, içeriğe verilecek */
+  background-color: #f5f5f5; /* Ana içerik için hafif gri arka plan */
+  overflow: auto; /* İçerik taşarsa kaydırma çubuğu çıksın */
+}
+
+.main-content-padding {
+  padding: 20px; /* List bileşeni için içeriden boşluk */
+}

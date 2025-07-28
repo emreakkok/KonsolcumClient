@@ -1,0 +1,207 @@
+// Spinner
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+
+  &.text-warning {
+    color: #ffc107 !important;
+  }
+}
+
+// Product Info Genel Stil
+.product-info {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  > * {
+    animation: fadeInUp 0.5s ease both;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+  }
+
+  > *:nth-child(1) { animation-delay: 0.1s; }
+  > *:nth-child(2) { animation-delay: 0.2s; }
+  > *:nth-child(3) { animation-delay: 0.3s; }
+  > *:nth-child(4) { animation-delay: 0.4s; }
+  > *:nth-child(5) { animation-delay: 0.5s; }
+
+  .product-title {
+    font-size: 2rem;
+    color: #333;
+    letter-spacing: 0.5px;
+  }
+
+  .price-section .current-price {
+    font-size: 1.8rem;
+    color: #28a745;
+  }
+
+  .product-meta {
+    small {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    span {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  }
+
+  .action-buttons .btn {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
+
+// Açıklama Kutusu
+.description-text {
+  background-color: #f9f9f9;
+  border-left: 4px solid #ffc107;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 50px;
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+
+  // 🛠️ Satır taşmasını engelle
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  &::before {
+    content: '\f129'; // "info-circle" ikonu
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 20px;
+    top: 17px;
+    color: #ffc107;
+  }
+
+  // Scrollbar stilleri (isteğe bağlı)
+  scrollbar-width: thin;
+  scrollbar-color: #ffc107 #f0f0f0;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffc107;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+}
+
+// Ana Görsel
+.main-image-container {
+  .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// Thumbnail Görselleri
+.thumbnail-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+
+  .thumbnail-image {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &.border-warning {
+      border-color: #ffc107 !important;
+      box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
+    }
+  }
+}
+
+// Responsive Düzenler
+@media (max-width: 768px) {
+  .product-gallery {
+    .main-image-container .main-image {
+      height: 260px;
+    }
+
+    .thumbnail-container .thumbnail-image {
+      height: 60px;
+      width: 60px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .main-image-container .main-image {
+    height: 220px;
+  }
+
+  .thumbnail-container .thumbnail-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .product-info {
+    .price-section .current-price {
+      font-size: 1.3rem;
+    }
+
+    .action-buttons .row > .col-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// Fade In Animasyon
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

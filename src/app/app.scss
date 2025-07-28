@@ -1,0 +1,25 @@
+/* Navbar: gül rengi */
+.custom-navbar {
+  background-color: #D4AF37 !important;
+}
+
+/* Tüm navbar metin ve butonlar beyaz */
+.custom-navbar .nav-link,
+.custom-navbar .navbar-brand,
+.custom-navbar .btn-outline-light {
+  color: white !important;
+  border-color: white !important;
+}
+
+.custom-navbar .btn-outline-light:hover {
+  background-color: white;
+  color: #b76e79 !important;
+}
+
+/* İçerik bölümü: altın sarısı */
+.content-body {
+  background-color: #fff8dc;
+  min-height: 100vh; /* sayfayı doldursun */
+  padding: 20px;
+  color: #333;
+}

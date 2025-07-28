@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Category Images (ID: {{ categoryId }})</h2>
+
+<mat-dialog-content>
+  <app-file-upload [options]="options" (uploadSuccess)="onFileUploadSuccess()"></app-file-upload>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngFor="let image of images; trackBy: trackByImageId" class="image-card">
+    <mat-radio-button 
+      [value]="image.id" 
+      [checked]="selectedImageId === image.id"
+      (change)="showCase(image.id)">
+    </mat-radio-button>
+    
+    <img [src]="getImageUrl(image.path)" [alt]="image.fileName" class="image">
+    
+    <div class="image-info">
+      <p class="image-name">{{ image.fileName }}</p>
+      <div class="image-actions">
+        <span *ngIf="image.showcase" class="showcase-badge">Vitrin</span>
+        <mat-icon class="delete-icon" (click)="deleteImage(image.id)">delete_forever</mat-icon>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="images.length === 0 && !errorMessage" class="no-images">
+    Henüz resim yüklenmemiş.
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,51 @@
+.create-role-form-wrapper {
+  padding: 10px; /* Bileşenin iç kenar boşluğu */
+}
+
+h2 {
+  text-align: center;
+  color: #3f51b5; /* Material Primary Color */
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Form elemanları arasında boşluk */
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px; /* Aynı satırdaki inputlar arasında boşluk */
+  width: 100%;
+  // Küçük ekranlarda alt alta gelmesi için
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.half-width-input {
+  flex: 1; /* Yarım genişlikli inputların eşit boşluk almasını sağlar */
+  min-width: 150px; /* Çok daralmasını engeller */
+}
+
+.toggle-group {
+  display: flex;
+  gap: 20px; /* Toggle'lar arasında boşluk */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  // Küçük ekranlarda alt alta gelmesi için
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+button[type="button"] { /* type="submit" yerine type="button" kullandım */
+  align-self: center; /* Butonu ortala */
+  margin-top: 20px;
+  padding: 10px 30px;
+}

@@ -1,0 +1,49 @@
+table {
+  width: 100%;
+}
+.table-container{
+padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+}
+
+
+th.mat-header-cell,
+td.mat-cell {
+  vertical-align: middle;
+  padding: 8px 16px;
+}
+
+td.mat-column-viewDetail,
+td.mat-column-delete,
+td.mat-column-isCompleted,
+th.mat-column-isCompleted {
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 8px;
+}
+
+td.mat-column-viewDetail mat-icon,
+td.mat-column-delete mat-icon,
+td.mat-column-isCompleted mat-icon {
+  vertical-align: middle;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Uzun metin için kısaltma */
+td.mat-column-shippingAddress {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.mat-column-createdDate,
+th.mat-column-createdDate {
+  min-width: 120px;
+  padding: 0 8px;
+  text-align: center;
+  vertical-align: middle;
+}

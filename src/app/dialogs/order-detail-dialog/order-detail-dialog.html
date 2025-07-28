@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>Sipariş Detayı</h2>
+
+<div *ngIf="isLoading" style="text-align: center; padding: 20px;">
+  <p>Sipariş detayları yükleniyor...</p>
+</div>
+
+<div mat-dialog-content *ngIf="!isLoading && orderDetail">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Sipariş Kodu: {{ orderDetail.orderCode }}</mat-card-title>
+      <mat-card-subtitle>Oluşturulma Tarihi: {{ orderDetail.createdDate | date:'short' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Kullanıcı Adı:</strong> {{ orderDetail.userName }}</p>
+      <p><strong>Teslimat Adresi:</strong> {{ orderDetail.shippingAddress }}</p>
+      <p><strong>Toplam Fiyat:</strong> {{ orderDetail.totalPrice | currency:'TRY':'symbol':'1.2-2' }}</p>
+
+      <h3>Ürünler</h3>
+      <div *ngIf="products.length > 0; else noProducts">
+        <table mat-table [dataSource]="products" class="mat-elevation-z8 full-width-table">
+
+          <!-- Ürün Adı + Görsel -->
+          <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef> Ürün </th>
+            <td mat-cell *matCellDef="let element">
+              <img
+                *ngIf="element.showcaseImagePath; else noImage"
+                [src]="'https://localhost:7240/' + element.showcaseImagePath"
+                class="product-table-image"
+                alt="Görsel" />
+              <ng-template #noImage>
+                <div class="product-table-image no-image"></div>
+              </ng-template>
+              {{ element.productName }}
+            </td>
+          </ng-container>
+
+          <!-- Miktar -->
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Miktar </th>
+            <td mat-cell *matCellDef="let element"> {{ element.quantity }} </td>
+          </ng-container>
+
+          <!-- Birim Fiyat -->
+          <ng-container matColumnDef="unitPrice">
+            <th mat-header-cell *matHeaderCellDef> Birim Fiyat </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.unitPrice | currency:'TRY':'symbol':'1.2-2' }}
+            </td>
+          </ng-container>
+
+          <!-- Toplam Fiyat -->
+          <ng-container matColumnDef="totalPrice">
+            <th mat-header-cell *matHeaderCellDef> Toplam Fiyat </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.totalPrice | currency:'TRY':'symbol':'1.2-2' }}
+            </td>
+          </ng-container>
+
+          <!-- Açıklama -->
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Açıklama </th>
+            <td mat-cell *matCellDef="let element">
+              <div style="white-space: pre-line;">
+                {{ element.description | slice:0:15 }}
+                {{ '\n' }}
+                {{ element.description | slice:15:27 }}
+                <span *ngIf="element.description.length > 27">...</span>
+              </div>
+            </td>
+          </ng-container>
+
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+      <ng-template #noProducts>
+        <p>Bu siparişe ait ürün bulunamadı.</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div mat-dialog-content *ngIf="!isLoading && !orderDetail">
+  <p>Sipariş detayları bulunamadı.</p>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">İptal</button>
+  <button matButton [mat-dialog-close]="data" cdkFocusInitial (click)="completeOrder()" *ngIf="!orderDetail?.isCompleted && canCompleteOrder">Siparişi Tamamla</button>
+</div>

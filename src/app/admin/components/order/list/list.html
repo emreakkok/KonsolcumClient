@@ -1,0 +1,62 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="orderCode">
+      <th mat-header-cell *matHeaderCellDef> Sipariş Kodu </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderCode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef> Kullanıcı Adı </th>
+      <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="shippingAddress">
+      <th mat-header-cell *matHeaderCellDef> Sipariş Detayları </th>
+      <td mat-cell *matCellDef="let element"> {{element.shippingAddress}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalPrice">
+      <th mat-header-cell *matHeaderCellDef> Toplam Fiyat </th>
+      <td mat-cell *matCellDef="let element"> {{element.totalPrice}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="createdDate">
+      <th mat-header-cell *matHeaderCellDef> Oluşturulma Tarihi </th>
+      <td mat-cell *matCellDef="let element"> {{ element.createdDate | date:'dd.MM.yyyy' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isCompleted">
+      <th mat-header-cell *matHeaderCellDef style="width:40px; text-align:center;">&nbsp;</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.isCompleted">
+          <mat-icon style="color: purple; cursor: pointer;">check_circle</mat-icon>
+        </ng-container>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="viewDetail">
+      <th mat-header-cell *matHeaderCellDef style="width:40px; text-align:center;">&nbsp;</th>
+      <td mat-cell *matCellDef="let element" ><mat-icon style="color: royalblue; cursor: pointer;" (click)="showDetail(element.id)">visibility</mat-icon></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="width:40px; text-align:center;">&nbsp;</th>
+      <td mat-cell *matCellDef="let element" appDelete [id]="element.id" controller="orders" (callback)="getOrders()">
+      <!--  <mat-icon style="color: deeppink;" (click)="delete(element.id ,$event)">delete_forever</mat-icon> -->
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator (page)="pageChanged()"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

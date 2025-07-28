@@ -1,0 +1,26 @@
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-5 w-100" style="max-width: 450px;">
+      <h2 class="text-center mb-4">Giriş Yap</h2>
+        
+        <div class="mb-3">
+          <label for="username" class="form-label">Kullanıcı Adı veya Email</label>
+          <input #txtUsernameOrEmail type="text" class="form-control" id="username" placeholder="Kullanıcı Adı & Email">
+          <small class="form-text text-muted invalid-feedback" >***</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Şifre</label>
+          <input #txtPassword type="password" class="form-control" id="password" placeholder="Şifre">
+        </div>
+
+        <button type="submit" class="btn btn-gold w-100" (click)="login(txtUsernameOrEmail.value ,txtPassword.value)">Giriş Yap</button>
+      
+        <div class="text-center mt-3">
+        <small>Bir hesabınız yok mu? <a style= "color: #e6c200;" href="/register">Kayıt Ol</a></small>
+      </div>
+      <div class="text-center mt-3">
+        <small><a style= "color: #e6c200;" href="/password-reset">Şifremi Unuttum</a></small>
+      </div>
+    </div>
+  </div>

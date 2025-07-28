@@ -1,0 +1,31 @@
+<div class="create-product-form-wrapper">
+  <h2>Yeni Kategori Oluştur</h2>
+  <form>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Kategori Adı</mat-label>
+      <input matInput placeholder="Örn: Oyunlar" #txtName>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+      <mat-label>Açıklama</mat-label>
+      <textarea matInput placeholder="Kategori açıklaması buraya yazılacak..." rows="3" #txtDescription></textarea>
+    </mat-form-field>
+
+
+    <div class="toggle-group">
+      <mat-slide-toggle #chkIsActive>
+        Aktif
+      </mat-slide-toggle>
+    </div>
+
+    <button mat-raised-button color="primary" type="button"
+      (click)="createCategory(
+        txtName,
+        txtDescription,
+        chkIsActive
+      )">
+      Kategori Oluştur
+    </button>
+  </form>
+</div>

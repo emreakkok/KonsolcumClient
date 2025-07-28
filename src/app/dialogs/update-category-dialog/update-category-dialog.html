@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Kategori Düzenle</h2>
+
+<div *ngIf="isLoading" style="text-align: center; padding: 20px;">
+  <p>Kategori bilgileri yükleniyor...</p>
+</div>
+
+<div mat-dialog-content *ngIf="!isLoading && category">
+  <mat-form-field class="full-width">
+    <mat-label>Kategori Adı</mat-label>
+    <input matInput [(ngModel)]="category.name" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Açıklama</mat-label>
+    <textarea matInput rows="4" [(ngModel)]="category.description"></textarea>
+  </mat-form-field>
+  
+  <div class="toggle-group">
+      <mat-slide-toggle [(ngModel)]="category.isActive" name="isActiveToggle">Aktif mi?</mat-slide-toggle>
+  </div>
+
+</div>
+
+<div mat-dialog-content *ngIf="!isLoading && !category">
+  <p>Kategori bilgisi bulunamadı.</p>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">İptal</button>
+  <button mat-button color="primary" (click)="updateCategory()">Güncelle</button>
+</div>

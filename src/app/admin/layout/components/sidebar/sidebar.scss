@@ -1,0 +1,29 @@
+.sidebar-list a.mat-list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+  font-size: 13px; /* Yazı küçüldü */
+  height: 40px; /* Tutarlı yükseklik */
+}
+
+.sidebar-list a.mat-list-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.sidebar-list mat-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #555;
+  vertical-align: middle;
+}
+
+.sidebar-list .list-label {
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}

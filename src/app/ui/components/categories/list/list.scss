@@ -1,0 +1,196 @@
+// Genel stiller
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+// Kategori kartları için stil
+.category-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .card-img-top {
+    transition: transform 0.3s ease;
+    border-radius: 12px 12px 0 0;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  &:hover .card-img-top {
+    transform: scale(1.05);
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #6c757d;
+  }
+}
+
+// Badge'ler için stil
+.badge {
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+
+  &.bg-success {
+    background-color: #28a745 !important;
+    color: #fff;
+  }
+}
+
+// Buton stili
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &.btn-outline-primary {
+    border-width: 2px;
+    border-color: #ffc107; // Sarı kenarlık
+    color: #ffc107; // Sarı metin rengi
+    background-color: transparent;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+      background-color: #ffc107; // Hover'da sarı arka plan
+      color: #000; // Hover'da metin rengini siyah yapıyoruz
+    }
+  }
+}
+
+// Breadcrumb stili
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  .breadcrumb-item {
+    font-size: 0.875rem;
+
+    + .breadcrumb-item::before {
+      content: "›";
+      color: #6c757d;
+    }
+
+    a {
+      color: #ffc107;
+      text-decoration: none;
+
+      &:hover {
+        color: #e0a800; // Hover'da biraz daha koyu sarı
+        text-decoration: underline !important;
+      }
+    }
+
+    &.active {
+      color: #6c757d;
+    }
+  }
+}
+
+// Sayfalama stili
+.pagination {
+  .page-link {
+    border-radius: 8px;
+    margin: 0 3px;
+    border: 1px solid #dee2e6;
+    color: #000;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+
+    &:hover:not(.bg-warning) {
+      background-color: #e9ecef;
+      border-color: #adb5bd;
+      transform: translateY(-1px);
+    }
+  }
+
+  .page-item {
+    &.active .page-link {
+      background-color: #ffc107;
+      border-color: #ffc107;
+      box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+      color: #000;
+    }
+
+    &.disabled .page-link {
+      color: #6c757d;
+      background-color: #fff;
+      border-color: #dee2e6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Alert stili
+.alert {
+  border-radius: 12px;
+
+  &.alert-info {
+    background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+    color: #0c5460;
+    
+    .fa-info-circle {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Global Renk Değişikliği
+// `text-primary` sınıfının mavi rengini sarıya dönüştürüyoruz
+.text-primary {
+  color: #ffc107 !important;
+}
+
+// Responsive ayarları
+@media (max-width: 768px) {
+  .category-card {
+    margin-bottom: 1rem;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .pagination {
+    .page-link {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

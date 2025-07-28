@@ -1,0 +1,83 @@
+.error-message {
+  color: red;
+  padding: 10px;
+  margin: 10px 0;
+}
+.no-images {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}
+
+.image-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  background: white;
+  transition: box-shadow 0.2s;
+}
+
+.image-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+.image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 15px;
+}
+
+.image-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-name {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.image-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.showcase-badge {
+  background-color: #4caf50;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.delete-icon {
+  color: #f44336;
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.delete-icon:hover {
+  color: #d32f2f;
+}
+
+::ng-deep .mat-radio-button {
+  margin-right: 10px;
+}
+
+::ng-deep .mat-radio-button .mat-radio-label {
+  white-space: nowrap;
+}

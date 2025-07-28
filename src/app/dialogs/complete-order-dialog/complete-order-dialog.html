@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Dikkat!</h1>
+
+<div mat-dialog-content>
+  Siparişi tamamlamak istediğinize emin misiniz?
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="completeOrderState.No">İptal</button>
+  <button mat-button color="primary" [mat-dialog-close]="completeOrderState.Yes" cdkFocusInitial (click)="complete()">Evet</button>
+</div>

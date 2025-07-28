@@ -1,0 +1,61 @@
+<mat-list role="list" class="sidebar-list">
+
+  <!-- SADECE "Genel User Yetkisi" olan -->
+<ng-container *ngIf="authService.hasOnlyRole('Genel User Yetkisi')">
+  <a mat-list-item role="listitem" routerLink="/admin">
+      <mat-icon matListIcon>dashboard</mat-icon>
+      <span class="list-label">Yönetim</span>
+    </a>
+  <a mat-list-item routerLink="myOrders">
+    <mat-icon matListIcon>shopping_cart</mat-icon>
+    <span class="list-label">Siparişlerim</span>
+  </a>
+  <a mat-list-item routerLink="">
+    <mat-icon matListIcon>visibility</mat-icon>
+    <span class="list-label">Siteyi Gör</span>
+  </a>
+</ng-container>
+
+  <!-- Diğer tüm roller için tam menü -->
+  <ng-container *ngIf="!authService.hasOnlyRole('Genel User Yetkisi')">
+    <a mat-list-item role="listitem" routerLink="/admin">
+      <mat-icon matListIcon>dashboard</mat-icon>
+      <span class="list-label">Yönetim</span>
+    </a>
+    <a mat-list-item role="listitem" routerLink="users">
+      <mat-icon matListIcon>people</mat-icon>
+      <span class="list-label">Kullanıcılar</span>
+    </a>
+    <a mat-list-item role="listitem" routerLink="products">
+      <mat-icon matListIcon>inventory_2</mat-icon>
+      <span class="list-label">Ürünler</span>
+    </a>
+    <a mat-list-item role="listitem" routerLink="categories">
+      <mat-icon matListIcon>category</mat-icon>
+      <span class="list-label">Kategoriler</span>
+    </a>
+
+    <a mat-list-item routerLink="myOrders">
+    <mat-icon matListIcon>shopping_cart</mat-icon>
+    <span class="list-label">Siparişlerim</span>
+  </a>
+  
+    <a mat-list-item role="listitem" routerLink="orders">
+      <mat-icon matListIcon>shopping_cart</mat-icon>
+      <span class="list-label">Siparişler</span>
+    </a>
+    <a mat-list-item role="listitem" routerLink="authorize-menu">
+      <mat-icon matListIcon>lock</mat-icon>
+      <span class="list-label">Yetkilendirme</span>
+    </a>
+    <a mat-list-item role="listitem" routerLink="roles">
+      <mat-icon matListIcon>admin_panel_settings</mat-icon>
+      <span class="list-label">Rol</span>
+    </a>
+    <a mat-list-item role="listitem" routerLink="">
+      <mat-icon matListIcon>visibility</mat-icon>
+      <span class="list-label">Siteyi Gör</span>
+    </a>
+  </ng-container>
+
+</mat-list>

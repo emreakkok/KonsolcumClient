@@ -1,0 +1,67 @@
+<!-- NAVBAR (Gül rengi arka plan) -->
+<div class="row">
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Konsolcum</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link text-white" routerLink="">Anasayfa</a></li>
+          <li class="nav-item"><a class="nav-link text-white" routerLink="products">Ürünler</a></li>
+          <li class="nav-item"><a class="nav-link text-white" routerLink="categories">Kategoriler</a></li>
+
+        </ul>
+
+          <form class="d-flex align-items-center gap-3" role="search">
+            <!-- Sepet -->
+            <a class="btn btn-outline-light d-flex align-items-center gap-1" data-bs-toggle="modal" data-bs-target="#basketModal" title="Sepet" (click)="loadComponent()">
+              <i class="bi bi-cart-fill"></i>
+            </a>
+            <!-- Kayıt Ol -->
+            <a class="btn btn-outline-light d-flex align-items-center gap-1" routerLink="register" *ngIf="!authService.isAuthenticated">
+              <i class="bi bi-person-plus"></i> Kayıt Ol
+            </a>
+
+            <!-- Giriş Yap -->
+            <a class="btn btn-outline-light d-flex align-items-center gap-1" routerLink="login" *ngIf="!authService.isAuthenticated">
+              <i class="bi bi-box-arrow-in-right"></i> Giriş Yap
+            </a>
+
+            <!-- Çıkış Yap -->
+            <a class="btn btn-outline-light d-flex align-items-center gap-1" style="color: red; cursor: pointer;" (click)="signOut()" *ngIf="authService.isAuthenticated">
+              <i class="bi bi-box-arrow-right"></i> Çıkış Yap
+            </a>
+
+            <!-- Yönetim -->
+            <a class="btn btn-outline-light d-flex align-items-center gap-1" routerLink="admin" *ngIf="authService.isAuthenticated">
+              <i class="bi bi-gear-fill"></i> Yönetim
+            </a>
+        </form>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- ALT KISIM (Altın sarısı zemin) -->
+<div class="row content-body">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Spinnerlar -->
+<ngx-spinner size="default" name="s1" type="ball-atom"></ngx-spinner>
+<ngx-spinner size="default" name="s2" type="ball-spin-clockwise-fade"></ngx-spinner>
+
+
+<!-- <app-basket></app-basket> -->
+ 
+<div class="modal fade" id="basketModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <ng-template appDynamicLoadComponent></ng-template>
+  </div>
+</div>

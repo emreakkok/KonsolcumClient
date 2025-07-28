@@ -1,0 +1,213 @@
+/* product listte categoryproduct gibi bir görsel yapı ile productları listelemek istiyorum yardım eder misin */
+
+// Ürün kartları için stil
+.product-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .card-img-top {
+    transition: transform 0.3s ease;
+    border-radius: 12px 12px 0 0;
+  }
+
+  &:hover .card-img-top {
+    transform: scale(1.05);
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+}
+
+// Fiyat stili
+.fs-5 {
+  font-size: 1.125rem !important;
+}
+
+// Badge'ler için stil
+.badge {
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+
+  &.bg-warning {
+    background-color: #ffc107 !important;
+    color: #000;
+  }
+
+  &.bg-danger {
+    background-color: #dc3545 !important;
+  }
+}
+
+// Buton stili
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+
+  &.btn-success {
+    // Sepete Ekle butonu için mevcut yeşil stilini koruyoruz
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, #20c997, #28a745);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    }
+  }
+
+  &.btn-outline-primary {
+    // Mavi olan butonu sarı yapıyoruz
+    border-width: 2px;
+    border-color: #ffc107; // Sarı kenarlık
+    color: #ffc107; // Sarı metin rengi
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+      background-color: #ffc107; // Hover'da sarı arka plan
+      color: #000; // Hover'da metin rengini siyah yapıyoruz
+    }
+  }
+}
+
+// Breadcrumb stili
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  .breadcrumb-item {
+    font-size: 0.875rem;
+
+    + .breadcrumb-item::before {
+      content: "›";
+      color: #6c757d;
+    }
+
+    a {
+      // Breadcrumb linkini sarı yapıyoruz
+      color: #ffc107;
+
+      &:hover {
+        color: #e0a800; // Hover'da biraz daha koyu sarı
+        text-decoration: underline !important;
+      }
+    }
+
+    &.active {
+      color: #6c757d;
+    }
+  }
+}
+
+// Sayfalama stili
+.pagination {
+  .page-link {
+    border-radius: 8px;
+    margin: 0 3px;
+    border: 1px solid #dee2e6;
+    color: #000; // Sayfa numaralarının rengini koyu yapalım
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+
+    &:hover:not(.bg-primary) {
+      background-color: #e9ecef;
+      border-color: #adb5bd;
+      transform: translateY(-1px);
+    }
+  }
+
+  .page-item {
+    &.active .page-link {
+      background-color: #ffc107; // Aktif sayfa butonu sarı
+      border-color: #ffc107; // Sarı kenarlık
+      box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+      color: #000;
+    }
+
+    &.disabled .page-link {
+      color: #6c757d;
+      background-color: #fff;
+      border-color: #dee2e6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Alert stili
+.alert {
+  border-radius: 12px;
+
+  &.alert-info {
+    background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+
+    .fa-info-circle {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Global Renk Değişikliği
+// `text-primary` sınıfının mavi rengini sarıya dönüştürüyoruz
+.text-primary {
+  color: #ffc107 !important;
+}
+
+// Responsive ayarları
+@media (max-width: 768px) {
+  .product-card {
+    margin-bottom: 1rem;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .pagination {
+    .page-link {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card .card-img-top {
+    height: 180px;
+  }
+
+  .fs-5 {
+    font-size: 1rem !important;
+  }
+}

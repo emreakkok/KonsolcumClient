@@ -1,0 +1,15 @@
+<mat-drawer-container class="products-drawer-container">
+
+  <mat-drawer mode="side" opened class="products-sidebar">
+    <div class="sidebar-content">
+      <app-product-create (productCreated)="onProductCreated()"></app-product-create>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content class="products-main-content">
+    <div class="main-content-padding">
+      <app-product-list #productList></app-product-list>
+    </div>
+  </mat-drawer-content>
+
+</mat-drawer-container>
